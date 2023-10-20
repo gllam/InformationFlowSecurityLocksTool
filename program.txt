@@ -1,0 +1,8 @@
+(lock x in
+    (if (!x >= !y)
+        then
+            x := (!x - !y)
+        else
+            skip
+    )
+)
