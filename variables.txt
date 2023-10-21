@@ -5,3 +5,4 @@ z:h,ref;bot,int
 x:h,ref;bot,int
 y:l,ref;bot,int
 PIN:h,ref;bot,int
+d:h,ref;l,ref;bot,int

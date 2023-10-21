@@ -7,13 +7,17 @@ from securityLevel import SecurityLevel
 class Pointer(Expression):
     effectType: EffectType = None
 
-    def __init__(self, value, currentLine):
+    def __init__(self, value, currentLine, variableSecurityLevel):
         try :
-            self.readLevel = SecurityLevel("bot")
             self.name = int(value)
-        except :
+        except:
             self.name = value
+            if variableSecurityLevel != None:
+                self.readLevel = SecurityLevel(variableSecurityLevel)
+            else:
+                self.readLevel = self.effectType.level
             return
+        
         
         raise Exception("Pointer can't be an integer: {}".format(value))
 

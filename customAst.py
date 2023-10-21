@@ -72,7 +72,7 @@ class CustomAST:
     return UnknownStatement()
   
   @staticmethod
-  def getAstExpression(expressionText: str, currentLine: int) -> Expression:
+  def getAstExpression(expressionText: str, currentLine: int, variableSecurityLevel: str = None) -> Expression:
     numberOfEnters = 0
     for char in expressionText:
       if char == '\n':
@@ -104,7 +104,7 @@ class CustomAST:
     # pointer or variable = letras sem espaços no meio
     separatorindex = isPointer(expressionText)
     if separatorindex[0] != -1:
-      return Pointer(expressionText, currentLine)
+      return Pointer(expressionText, currentLine, variableSecurityLevel)
 
     return UnknownExpression()
   

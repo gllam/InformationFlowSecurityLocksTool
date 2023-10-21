@@ -22,12 +22,12 @@ class Ref(Statement):
     variableAndSecurityLevel = sequenceText[separatorsIndexes[0] + len("ref"):separatorsIndexes[1]].strip()
     variableSecurityLevel = variableAndSecurityLevel.split(",")[1]
     variableSecurityLevel = variableSecurityLevel[:len(variableSecurityLevel) - 1]
-    self.variableSecurityLevel = variableSecurityLevel
+    self.variableSecurityLevel = variableSecurityLevel.strip()
     
     variable = variableAndSecurityLevel.split(",")[0]
     variable = variable[1:]
     #print("variable: " , variable)
-    self.variableToInitialize = CustomAST.getAstExpression(variable, currentLine)
+    self.variableToInitialize = CustomAST.getAstExpression(variable, currentLine, self.variableSecurityLevel)
     
     #print("value: " , sequenceText[separatorsIndexes[1] + len("="):separatorsIndexes[2]])
     newLineNumber = currentLine + len(getAllIndexesOfSubstringInString(sequenceText[0: separatorsIndexes[1] + len("=")], '\n'))
@@ -51,6 +51,8 @@ class Ref(Statement):
 
   def evaluate(self): #TESTED WITH SUCCESS
     ProgramToEvaluate.addVariable(self.variableToInitialize, self.variableSecurityLevel, self.value.effectType)
+
+    print(self.variableToInitialize.effectType.toInputSchemaString())
     
     if not self.value.readLevel.isLessEqualThan(self.variableToInitialize.effectType.level):
       raise Exception("Value read security level ({}), needs to be less or equal than variable write level ({}) in \n{}".format(
