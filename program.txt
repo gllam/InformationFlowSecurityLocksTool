@@ -1,1 +1,5 @@
-(ref (u, l) = 0 in skip)
+y := 0;
+(spawn
+    (lock x in (while (!x == 0) do skip))
+);
+(lock x in y := 1)
