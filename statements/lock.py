@@ -52,7 +52,7 @@ class Lock(Statement):
         self.lockedStatement.writeLevel.getLevelAsString(),
         self.toString()))
     
-    self.writeLevel = SecurityLevel(self.lockedStatement.writeLevel)
+    self.writeLevel = SecurityLevel(self.pointer.effectType.level)
     self.terminationLevel = SecurityLevel(self.lockedStatement.terminationLevel.join(self.pointer.effectType.level))
 
 
