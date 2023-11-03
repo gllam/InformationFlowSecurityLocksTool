@@ -13,10 +13,10 @@ To analyze your code using this tool, follow these simple steps:
 1. **Variables File (variables.txt)**: Create a `variables.txt` file with the free variables you want to analyze in your program. Each variable should follow the structure: `nameVariable:securityLevel,type;securityLevel,type; ...` The security levels are associated with the sensitivity of the variable, where "bot" represents the lowest security level for integers. For example:
 
 ```python
- username:h,ref;bot,int
+ balance:h,ref;bot,int
 ```
 
-In this example, `username` is a high-security level pointer, that contains a bot-security level integer.
+In this example, `balance` is a high-security level pointer, that contains a bot-security level integer.
 
 2. **Program File (program.txt)**: Create a `program.txt` file that contains the program you want to analyze. Ensure that the program is written in the specified language for this tool.
 
