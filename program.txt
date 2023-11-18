@@ -1,5 +1,7 @@
 y := 0;
+z := 0;
 (spawn
-    (lock x in (while (!x == 0) do skip))
+    (lock x in z := 1; (while (!x == 0) do skip))
 );
+(while !z == 0 do skip);
 (lock x in y := 1)
