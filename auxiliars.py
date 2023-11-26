@@ -179,7 +179,7 @@ def isOperation(codeText: str) -> []:
     if codeText[0] != '(' or codeText[len(codeText) -  1] != ')':
         return [-1]
 
-    possibleOperations = ["==", "<=", ">=", "**", "!=", "+", "-", "/", "*", "<", ">"]
+    possibleOperations = ["&&", "||", "==", "<=", ">=", "**", "!=", "+", "-", "/", "*", "<", ">"]
     operator = ""
     for operation in possibleOperations:    
         if codeText.find(operation) != -1:
