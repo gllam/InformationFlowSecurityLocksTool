@@ -1,0 +1,2 @@
+(lock x in skip);
+y := 1

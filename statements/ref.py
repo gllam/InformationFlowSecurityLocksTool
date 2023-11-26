@@ -52,7 +52,7 @@ class Ref(Statement):
   def evaluate(self): #TESTED WITH SUCCESS
     ProgramToEvaluate.addVariable(self.variableToInitialize, self.variableSecurityLevel, self.value.effectType)
 
-    print(self.variableToInitialize.effectType.toInputSchemaString())
+    #print(self.variableToInitialize.effectType.toInputSchemaString())
     
     if not self.value.readLevel.isLessEqualThan(self.variableToInitialize.effectType.level):
       raise Exception("Value read security level ({}), needs to be less or equal than variable write level ({}) in \n{}".format(

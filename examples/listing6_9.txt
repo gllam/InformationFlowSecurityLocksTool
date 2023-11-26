@@ -1,0 +1,2 @@
+(while (!x == 0) do skip);
+(ref (z, h) = 1 in y := 1)

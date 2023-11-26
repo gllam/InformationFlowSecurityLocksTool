@@ -1,0 +1,1 @@
+(while (!x == 0) do skip); y := 1

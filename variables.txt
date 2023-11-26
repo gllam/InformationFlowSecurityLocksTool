@@ -1,7 +1,6 @@
 a:h,ref;bot,int
 b:l,ref;bot,int
 c:l,ref;bot,int
-z:h,ref;bot,int
 x:h,ref;bot,int
 y:l,ref;bot,int
 PIN:h,ref;bot,int
